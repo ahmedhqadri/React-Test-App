@@ -11,7 +11,7 @@ import {
 
 
 export default class component3 extends Component {
-  
+
   constructor() {
     super();
     this.state = { pressStatus: false };
@@ -22,23 +22,23 @@ export default class component3 extends Component {
   _onShowUnderlay(){
     this.setState({ pressStatus: true });
   }
-  
+
   onPress(){
       this.props.navigator.push({
         id: 'component3ios'
       });
   }
-  
+
   render() {
     return (
-      
-      <View>
-  
-        
-        
-        
+
+      <View style={styles.container}>
+
+
+
+
       </View>
-      
+
     );
   }
 }
