@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
-
+import FadeInView from '../FadeInView';
 
 export default class component2 extends Component {
 
@@ -34,19 +34,21 @@ export default class component2 extends Component {
     return (
 
       <View style={styles.container}>
-        <Text style={styles.title}>
-          The following is a native picker. Select an item and press continue
-        </Text>
-        <Picker
-           style={{
-          }}
-          selectedValue={(this.state && this.state.pickerValue) || 'a'}
-          onValueChange={(value) => {
-            this.setState({pickerValue: value})
-          }}>
-          <Picker.Item label={'Pizza'} value={'a'} />
-          <Picker.Item label={'Burger'} value={'b'} />
-        </Picker>
+        <FadeInView>
+          <Text style={styles.title}>
+            The following is a native picker. Select an item and press continue
+          </Text>
+          <Picker
+             style={{
+            }}
+            selectedValue={(this.state && this.state.pickerValue) || 'a'}
+            onValueChange={(value) => {
+              this.setState({pickerValue: value})
+            }}>
+            <Picker.Item label={'Pizza'} value={'a'} />
+            <Picker.Item label={'Burger'} value={'b'} />
+          </Picker>
+        </FadeInView>
 
         <TouchableOpacity onPress={() => {this.onPress()}}
           style={ this.state.pressStatus ? styles.buttonPress : styles.button }

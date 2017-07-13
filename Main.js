@@ -17,8 +17,7 @@ import {
 import Component1 from './components/component1/Component1';
 import Component2 from './components/component2/Component2';
 import Component3 from './components/component3/Component3';
-
-
+import Cameraroll from './components/component3/Cameraroll';
 export default class Project extends Component {
      renderScene(route, navigator){
       switch(route.id){
@@ -28,6 +27,8 @@ export default class Project extends Component {
           return (<Component2 navigator={navigator} />)
         case 'component3':
           return (<Component3 navigator={navigator} />)
+        case 'cameraroll':
+          return (<Cameraroll navigator={navigator} />)
       }
     }
 

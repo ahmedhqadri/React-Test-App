@@ -4,11 +4,15 @@ import {
   StyleSheet,
   Text,
   View,
+  StatusBar,
   TouchableOpacity,
 } from 'react-native';
 
+import FadeInView from '../FadeInView';
+
+
 export default class Component1 extends Component {
- 
+
   constructor() {
     super();
     this.state = { pressStatus: false };
@@ -19,38 +23,49 @@ export default class Component1 extends Component {
   _onShowUnderlay(){
     this.setState({ pressStatus: true });
   }
-  
+
   onPress(){
       this.props.navigator.push({
         id: 'component2'
       });
   }
-  
-  render() { 
-    
-    
-    return (   
+
+  render() {
+
+
+    return (
       <View style={styles.container}>
-        
-        <Text style={styles.title}>
-          Welcome to React Native App!
-        </Text>
-        
-        <Text style={styles.subtitle}>
-          This app will show native components created using React-Native
-        </Text>
-        
-        <Text style={styles.subtitle}>
-          App Created By Ahmed Qadri
-        </Text>
-        
+        <StatusBar
+         backgroundColor={'transparent'}
+         translucent
+         barStyle="light-content"
+       />
+        <FadeInView>
+          <Text style={styles.title}>
+            Welcome to React Native App!
+          </Text>
+
+          <Text style={styles.subtitle}>
+            This app will show native components created using React-Native
+          </Text>
+
+          <Text style={styles.subtitle}>
+            Swipe Left to Right to go back to previous screen
+          </Text>
+
+          <Text style={styles.subtitle}>
+            App Created By Ahmed Qadri
+          </Text>
+
+        </FadeInView>
+
         <TouchableOpacity onPress={() => {this.onPress()}}
           style={ this.state.pressStatus ? styles.buttonPress : styles.button }
           onHideUnderlay={this._onHideUnderlay.bind(this)}
-          onShowUnderlay={this._onShowUnderlay.bind(this)}>         
+          onShowUnderlay={this._onShowUnderlay.bind(this)}>
             <Text style={styles.buttontext}>Continue</Text>
         </TouchableOpacity>
-  
+
       </View>
     );
   }
